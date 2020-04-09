@@ -30,6 +30,8 @@ assumptions = {
     }
 }
 
+infection_growth = assumptions.infection_growth
+
 
 // All from CSSE, for Argentina on April 8
 argentina_april_8_data = {
