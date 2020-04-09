@@ -12,6 +12,7 @@ assumptions = {
 argentina_april_8_data = {
     attributed_deaths_so_far: 56,
     recovered_so_far: 338,
+    
     // mean daily growth rate for confirmed cases in this region for the full time we have data
     confirmed_case_growth_rate: 1.12
 }
