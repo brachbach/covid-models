@@ -29,7 +29,7 @@ Of Models 1-3, Model 2 is the most similar to the PlaguePlus model, so I'll comp
                 * use the number of people that ultimately died in China to estimate the rate of spread once the government started to intervene. Results in:
                     * about a 7% daily increase in infections during the first 14 days of government intervention
                     * about a 0.7% daily increase in infections after the first 14 days of government intervention
-            * there are the main infection spread rates used, but there are a wide variety of other rates used in the model in various circumstances
+            * the model mostly uses the rates I mentioned in the above bullets, but it uses a wide variety of other rates as well
                 * You can see the infection growth rate used for a region at a given time in the [Infection Growth Rate tab](https://docs.google.com/spreadsheets/d/1sYLHA61Uvocxvq5os26u5luxMpo9QQcsZwe13_tU_FE/edit#gid=501118816)
                 * Most of the rates used are spelled out in the [Assumptions tab](https://docs.google.com/spreadsheets/d/1sYLHA61Uvocxvq5os26u5luxMpo9QQcsZwe13_tU_FE/edit#gid=371207754) 
         * this difference between the models could result in a 10X or larger difference in estimates, though I'm not sure by how much they differ in practice
