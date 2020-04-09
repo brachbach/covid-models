@@ -26,7 +26,7 @@ assumptions = {
 
         // 'Assumptions'!C27
         // My note: this is based on the growth rate of deaths of Chinese people who got infected during days 15+ after their lockdown
-        intervention_day_15_plus: 0.068514
+        intervention_day_15_plus: 0.0068514
     }
 }
 
@@ -70,7 +70,4 @@ plague_plus_prediction = () => eventual_attributed_deaths() * infections_per_dea
 
 console.log(plague_plus_prediction())
 // Should be 13,537 -- 'Estimated Cases'CE8
-
-intermediate_values.argentina_daily_infection_growth_rate.forEach(el => console.log(el))
-
 
