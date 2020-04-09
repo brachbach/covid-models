@@ -12,21 +12,21 @@ assumptions = {
 argentina_april_8_data = {
     attributed_deaths_so_far: 56,
     recovered_so_far: 338,
-    
+
     // mean daily growth rate for confirmed cases in this region for the full time we have data
     confirmed_case_growth_rate: 1.12
 }
 
 model_1_prediction = () => estimated_deaths() * infections_per_death()
 
-    estimated_deaths = () => eventual_confirmed_deaths() * actual_deaths_per_confirmed_death()
+    estimated_deaths = () => eventual_attributed_deaths() * actual_deaths_per_confirmed_death()
 
-        // deaths that will eventually be confirmed for people who are already infected
-        eventual_confirmed_deaths = () => confirmed_case_growth_rate() ** days_from_infection_to_death() * attributed_deaths_so_far()
-
-            confirmed_case_growth_rate = () => argentina_april_8_data.confirmed_case_growth_rate
-
-            days_from_infection_to_death = () => assumptions.days_from_infection_to_death
+        eventual_attributed_deaths = () => eventual_attributed_deaths_per_death_so_far() * attributed_deaths_so_far()
+            
+            // deaths that will eventually be confirmed for people who are already infected
+            eventual_attributed_deaths_per_death_so_far = () => confirmed_case_growth_rate() ** days_from_infection_to_death()
+                confirmed_case_growth_rate = () => argentina_april_8_data.confirmed_case_growth_rate
+                days_from_infection_to_death = () => assumptions.days_from_infection_to_death
 
             // Deaths attributed to COVID - 19
             attributed_deaths_so_far = () => argentina_april_8_data.attributed_deaths_so_far
