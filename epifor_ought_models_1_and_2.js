@@ -8,7 +8,7 @@ assumptions = {
     canonical_mortality_rate: 0.00765 // https://pandemic.metaculus.com/questions/3755/
 }
 
-// All from CSSE, for Argentina on April 8
+// All from CSSE, for Argentina on April 7
 argentina_april_8_data = {
     attributed_deaths_so_far: 56,
     recovered_so_far: 338,

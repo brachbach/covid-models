@@ -1,3 +1,6 @@
+# NOTE: YOU PROBABLY DON'T NEED TO READ THIS
+The model is expressed much more clearly in `plague_plus_model.js`
+
 # What's the Apr 8 estimate for Argentina?
 From the UI: 14,000
 
