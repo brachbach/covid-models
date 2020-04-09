@@ -4,7 +4,10 @@
 // Assumptions are explained in the model sheet: https://docs.google.com/spreadsheets/d/1sYLHA61Uvocxvq5os26u5luxMpo9QQcsZwe13_tU_FE/edit#gid=371207754
 assumptions = {
     // 0.015 is the average death rate from 'Assumptions'!C11 
-    infections_per_death: 1/0.015
+    infections_per_death: 1/0.015,
+
+    // 'Assumptions'!C10 
+    days_from_infection_to_death: 21
 }
 
 
@@ -17,7 +20,8 @@ argentina_april_8_data = {
 // intermediate values to make testing this easier
 intermediate_values = {
     // cumulative infection growth -- 'Cumulative Infection Growth'!CE8
-    eventual_attributed_deaths_per_death_so_far: 3.223
+    eventual_attributed_deaths_per_death_so_far: 3.223,
+    argentina_daily_infection_growth_rate: [0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.23, 0.23, 0.22, 0.22, 0.22, 0.21, 0.21, 0.20, 0.20, 0.20, 0.20, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
 }
 
 
@@ -32,7 +36,11 @@ plague_plus_prediction = () => eventual_attributed_deaths() * infections_per_dea
 
         attributed_deaths_so_far = () => argentina_april_8_data.attributed_deaths_so_far
 
-        eventual_attributed_deaths_per_death_so_far = () => intermediate_values.eventual_attributed_deaths_per_death_so_far
+        eventual_attributed_deaths_per_death_so_far = () => {
+            // according to the model, it takes 21 days to die; get the daily infection growth rates for the past 21 days
+            infection_growth_rates_over_number_of_days_to_death = intermediate_values.argentina_daily_infection_growth_rate.slice(-1 * assumptions.days_from_infection_to_death)
+            return infection_growth_rates_over_number_of_days_to_death.reduce((so_far, daily_growth_rate) => so_far * (1 + daily_growth_rate), 1)
+        }
     
     infections_per_death = () => assumptions.infections_per_death
 
