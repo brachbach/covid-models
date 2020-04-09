@@ -18,9 +18,9 @@ Of Models 1-3, Model 2 is the most similar to the PlaguePlus model, so I'll comp
     * Clearly Model 2's assumption is more realistic than PlaguePlus
     * In the current version of Model 2, `actual_deaths_per_confirmed_death = 1 / 0.7`, which is close to 1. So this factor doesn't make a big difference
 2. **Deaths lag period**: There's a time lag of about 20 days between getting infected and dying (which I'll call the "deaths lag period"). So to estimate current infections from deaths so far, both models use deaths so far to estimate how many people were infected about 20 days ago. Then, they model how much infection has spread in the past 20 days. However, they approach this differently:
-    1. **Days to death**: Model 2 assumes 17 days from infection to death, PlaguePlus assumes 21
+    1. **Days from infection to death**: Model 2 assumes 17 days from infection to death, PlaguePlus assumes 21
         * This can make a 2x or bigger difference in the final estimate of people infected in countries where the virus is spreading rapidly
-    2. **Infection spread rate during lag period**: Model 2 simply assumes that, during the deaths lag period, the infection has spread at the pace of increase of confirmed cases in the CSSE data from Johns Hopkins. Plague Plus does something much more complicated, thinking from first principles about how much the infection has spread and taking countermeasures into account
+    2. **Infection spread during lag period**: Model 2 simply assumes that, during the deaths lag period, the infection has spread at the pace of increase of confirmed cases in the CSSE data from Johns Hopkins. Plague Plus does something much more complicated, thinking from first principles about how much the infection has spread and taking countermeasures into account
         * I still need to look into PlaguePlus more to understand how it estimates infection spread in the deaths lag period.
         * I'm pretty sure that this difference between the models can result in a 10X or larger difference in estimates
 3. **Canonical mortality rate**: PlaguePlus assumes a canonical mortality rate of 1.5%, while Model 2 assumes a canonical mortality rate of 0.765%
