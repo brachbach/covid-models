@@ -35,3 +35,4 @@ Of Models 1-3, Model 2 is the most similar to the PlaguePlus model, so I'll comp
         * this difference between the models could result in a 10X or larger difference in estimates, though I'm not sure by how much they differ in practice
 3. **Canonical mortality rate**: PlaguePlus assumes a canonical mortality rate of 1.5%, while Model 2 assumes a canonical mortality rate of 0.765%
     * This causes a 2X difference in estimates between the models
+4. **Hospital bed availability**: Model 2 does not consider hospital bed availability. PlaguePlus includes data on hospital bed availability but doesn't seem to use it yet in the model.
