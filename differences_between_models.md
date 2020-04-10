@@ -37,7 +37,7 @@ Of Models 1-3, Model 2 is the most similar to the PlaguePlus model, so I'll comp
     * This causes a 2X difference in estimates between the models
 4. **Hospital bed availability**: Model 2 does not consider hospital bed availability. PlaguePlus includes data on hospital bed availability but doesn't seem to use it yet in the model.
 
-## Model 1 and PlaguePlus vs. Imperial College London model
+## Imperial College London model vs. Model 1
 
 The [Imperial College London model](https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-03-30-COVID19-Report-13.pdf) ([code](https://github.com/ImperialCollegeLondon/covid19model/releases/tag/v1.0)) is quite different from models 1-3 and the PlaguePlus model. For simplicity, I'll compare it to Model 1 (most of these comparisons also apply to models 2-3 and the PlaguePlus model).
 
