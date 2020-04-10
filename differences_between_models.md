@@ -51,4 +51,5 @@ The [Imperial College London model](https://www.imperial.ac.uk/media/imperial-co
 * Grab bag of other interesting things that the Imperial model does:
     * If there are fewer than 10 attributed deaths in a country, don't use attributed deaths to determine infection rates. Most of the infections that led to those deaths might have been acquired abroad
     * Use distributions for many things, e.g. incubation period and time from onset of symptoms to death
+    * To estimate IFR, combine an estimate of IFR from one paper with age-adjusted infection attack rates from another paper
     * Use a "discrete renewal process" to model the number of infected individuals. I don't understand this very well yet, but it's similar to Susceptible-Infected-Recovered modeling, where each individual is modeled as being in one of those 3 categories (and then if susceptible, may catch COVID from others, and if Infected, may spread it to others)

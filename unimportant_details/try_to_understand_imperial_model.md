@@ -48,11 +48,19 @@ public health authorities.
 
 ### 8.1 Death model
 * for some reason deaths are modeled using a [negative binomial distribution](https://en.wikipedia.org/wiki/Negative_binomial_distribution)
-    * also half-normal distribution something something
-    * I think would take me a while to understand this, will try to skip it and see how that goes
+    * distribution of # of failures until r successes
+    * use instead of Poisson when you want to be able to model successes being correlated
+    * Half normal is just |normal| (for normal centered at 0) 
+    * I notice that knowing what these distributions are did not help me understand the death model better whatsoever, lol
 * Only use deaths to model infection once there have been at least 10 deaths, otherwise most of the deaths might have been people who caught COVID outside of the country and then died there
 * Use a previously-estimated ifr, but adjust based on age-based attack rates and country-specific patterns of disease spread (I don't really get this part)
+    * attack rate: the proportion of populatoin X that something bad happens to. I think in this case the "bad stuff" is infection
+    * OK wow I undrestand the IFR stuff now and it's really complicated! Relying on multiple studies
 * Gamma distributions for incubation period and time from symptom onset to death
+    * Gamma distribution -- seems like just a flexible paramaterized PDF
+* discrete sum
+    * no wikipedia article about what this is
+    * 
 * Some stuff about discrete sums that I don't understand at the end
 
 ### 8.2 Infection model
