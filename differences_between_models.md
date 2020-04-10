@@ -36,3 +36,19 @@ Of Models 1-3, Model 2 is the most similar to the PlaguePlus model, so I'll comp
 3. **Canonical mortality rate**: PlaguePlus assumes a canonical mortality rate of 1.5%, while Model 2 assumes a canonical mortality rate of 0.765%
     * This causes a 2X difference in estimates between the models
 4. **Hospital bed availability**: Model 2 does not consider hospital bed availability. PlaguePlus includes data on hospital bed availability but doesn't seem to use it yet in the model.
+
+## Model 1 and PlaguePlus vs. Imperial College London model
+
+The [Imperial College London model](https://www.imperial.ac.uk/media/imperial-college/medicine/mrc-gida/2020-03-30-COVID19-Report-13.pdf) ([code](https://github.com/ImperialCollegeLondon/covid19model/releases/tag/v1.0)) is quite different from models 1-3 and the PlaguePlus model. For simplicity, I'll compare it to Model 1 (most of these comparisons also apply to models 2-3 and the PlaguePlus model).
+
+### Basic differences in what's being modeled and in data
+* The Imperial College model primarily focuses on assessing the impact of government interventions, though it does so by estimating infections and deaths and so is comparable to Model 1
+* Model 1 is of the whole world, while the Imperial College model is only of 11 European countries
+* Model 1 uses CSSE/Johns Hopkins data, while the Imperial College model uses death data form the European Centre of Disease Control (per section 5, "Data", in the paper) as well as their own dataset of interventions (per Appendix 8.6 in the paper)
+
+### Differences in model implementation
+* Model 1 does not use conditioning. The Imperial model conditions on attributed deaths to estimate the other parameters
+* Grab bag of other interesting things that the Imperial model does:
+    * If there are fewer than 10 attributed deaths in a country, don't use attributed deaths to determine infection rates. Most of the infections that led to those deaths might have been acquired abroad
+    * Use distributions for many things, e.g. incubation period and time from onset of symptoms to death
+    * Use a "discrete renewal process" to model the number of infected individuals. I don't understand this very well yet, but it's similar to Susceptible-Infected-Recovered modeling, where each individual is modeled as being in one of those 3 categories (and then if susceptible, may catch COVID from others, and if Infected, may spread it to others)
