@@ -4,7 +4,7 @@ I'll focus on differences between the Ought/EpiFor models 1-3 on the one hand, a
 
 # How to read
 
-I'll assume that you've already read and understood the relevant `this_model.js` file for each model discussed here (or that you'll refer to it as needed). So I won't explain here how the models work, only how they compare to each other.
+I'll assume that you've already read and understood the relevant model recreation in `model_recreations/` for each model discussed here (or that you'll refer to it as needed). So I won't explain here how the models work, only how they compare to each other.
 
 # Comparisons
 
